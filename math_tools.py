@@ -33,3 +33,19 @@ def check_palindrome(word):
         return True and check_palindrome(word[1:-1])
     else:
         return False
+
+def is_prime(x):
+    if x == 0 or x == 1:
+        return False
+    elif x == 2:
+        return True
+    elif x % 2 == 0:
+        return False
+    k = 3
+    check_bound = sqrt(x)+1
+    while True:
+        if k >= check_bound:
+            return True
+        if x % k == 0:
+            return False
+        k += 2
