@@ -14,5 +14,3 @@ m_of_3_or_5 = multiples_of_3 | multiples_of_5
 ans = sum(m_of_3_or_5)
 
 print ans 
-
-#> 233168

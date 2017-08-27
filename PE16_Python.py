@@ -9,5 +9,3 @@ num = 2**1000
 ans = sum([int(x) for x in str(num)])
 
 print ans
-
-#> 1366
