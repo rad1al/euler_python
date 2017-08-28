@@ -3,6 +3,9 @@ A bunch of useful mathematical functions.
 """
 from math import sqrt
 
+lc_numbering = {item : i+1 for i, item in enumerate("abcdefghijklmnopqrstuvwxyz")}
+uc_numbering = {item : i+1 for i, item in enumerate("ABCDEFGHIJKLMNOPQRSTUVWXYZ")}
+
 def even(n):
     if n % 2 == 0:
         return True
@@ -49,3 +52,9 @@ def is_prime(x):
         if x % k == 0:
             return False
         k += 2
+
+def factorial(n):
+	if n <= 1:
+		return 1
+	else:
+		return n * factorial(n-1)
