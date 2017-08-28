@@ -29,6 +29,13 @@ def prime_factorize(x):
         else:
             n += 1
 
+def e_sieve(n):
+    multiples = set()
+    for k in range(2, n+1):
+        if k not in multiples:
+            yield k
+            multiples.update(range(k*k, n+1, k)) # update set with new elements
+
 def check_palindrome(word):
     if len(word) < 2:
         return True
@@ -54,7 +61,24 @@ def is_prime(x):
         k += 2
 
 def factorial(n):
-	if n <= 1:
-		return 1
-	else:
-		return n * factorial(n-1)
+    if n <= 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+def product(lst):
+    return reduce(lambda x,y : x*y, lst)
+
+def recursive_powerset(lst):
+    if lst == []: # Base case
+        return [[]]
+    else:
+        recursive_result = recursive_powerset(lst[1:]) # apply recursive function to rest of lst
+        return recursive_result + [[lst[0]] + item for item in recursive_result] # add the first of lst to every elem in recursive result
+
+def powerset_c(lst):
+    """powerset function using comprehensions"""
+    output = [[]]
+    for item in lst:
+        output += [subset+[item] for subset in output]
+    return output
