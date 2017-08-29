@@ -15,5 +15,3 @@ for x in range(3, int(2e6), 2):
 ans = sum(primes)
 
 print ans
-
-#> 142913828922

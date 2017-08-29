@@ -2,6 +2,9 @@
 A bunch of useful mathematical functions.
 """
 from math import sqrt
+from io_tools import read_data
+import operator
+from collections import Counter
 
 lc_numbering = {item : i+1 for i, item in enumerate("abcdefghijklmnopqrstuvwxyz")}
 uc_numbering = {item : i+1 for i, item in enumerate("ABCDEFGHIJKLMNOPQRSTUVWXYZ")}
@@ -15,6 +18,13 @@ def odd(n):
     if n % 2 == 1:
         return True
     return False
+
+def factorize(x):
+    s = set()
+    for y in range(1,int(x**0.5)+1):
+        if x % y == 0:
+            s.update((y,x/y))
+    return s
 
 def prime_factorize(x):
     lst = []
@@ -35,6 +45,12 @@ def e_sieve(n):
         if k not in multiples:
             yield k
             multiples.update(range(k*k, n+1, k)) # update set with new elements
+
+def count_factors(n):
+    pf = prime_factorize(n)
+    count = Counter(pf)
+    s = product([v+1 for v in count.values()])
+    return s
 
 def check_palindrome(word):
     if len(word) < 2:
@@ -82,3 +98,31 @@ def powerset_c(lst):
     for item in lst:
         output += [subset+[item] for subset in output]
     return output
+
+def million_primes():
+    return [int(x) for x in read_data("data/primes_up_to_1e6.txt")]
+
+def hundred_million_primes():
+    return [int(x) for x in read_data("data/primes_up_to_1e8.txt")]
+
+def get_k_with_largest_v(dct):
+    return max(dct.iteritems(), key=operator.itemgetter(1))[0]
+
+def get_k_with_smallest_v(dct):
+    return min(dct.iteritems(), key=operator.itemgetter(1))[0]
+
+def triangles(n):
+    return [(x*(x+1))/2 for x in xrange(1,n+1)]
+
+def squares(n):
+    return [x*x for x in xrange(1,n+1)]
+
+def get_digits(n):
+    return [i for i in str(n)]
+
+def int2bin(n):
+    return '{0:0b}'.format(n)
+
+def concat(xss):
+    return reduce(lambda x,y : x + y, xss)
+
