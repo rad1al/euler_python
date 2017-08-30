@@ -99,11 +99,17 @@ def powerset_c(lst):
         output += [subset+[item] for subset in output]
     return output
 
-def million_primes():
-    return [int(x) for x in read_data("data/primes_up_to_1e6.txt")]
+def million_primes(t = int):
+    if t == int:
+        return [int(x) for x in read_data("data/primes_up_to_1e6.txt")]
+    else:
+        return read_data("data/primes_up_to_1e6.txt")
 
-def hundred_million_primes():
-    return [int(x) for x in read_data("data/primes_up_to_1e8.txt")]
+def hundred_million_primes(t = int):
+    if t == int:
+        return [int(x) for x in read_data("data/primes_up_to_1e8.txt")]
+    else:
+        return read_data("data/primes_up_to_1e8.txt")
 
 def get_k_with_largest_v(dct):
     return max(dct.iteritems(), key=operator.itemgetter(1))[0]
@@ -125,4 +131,32 @@ def int2bin(n):
 
 def concat(xss):
     return reduce(lambda x,y : x + y, xss)
+
+def check_perm_s(a,b):
+    """Check if 2 strings are permutations of another."""
+    if sorted(a) == sorted(b):
+        return True
+    else:
+        return False
+
+def check_perm_n(a,b):
+    """Check if 2 integers are permutations of another."""
+    tally = [0]*10
+    while a > 0:
+        n = a % 10
+        tally[n] += 1
+        a /= 10
+    while b > 0:
+        n = b % 10
+        tally[n] -= 1
+        b /= 10
+    for i in tally:
+        if i != 0:
+            return False
+    return True
+
+
+
+
+
 
