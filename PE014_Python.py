@@ -7,7 +7,7 @@ def collatz(path):
 	if last == 1:
 		lookup[path[0]] = path
 		return path
-	if last % 2 == 0:
+	elif last % 2 == 0:
 		nxt = last / 2
 	else:
 		nxt = 3 * last + 1

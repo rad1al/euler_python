@@ -117,11 +117,17 @@ def get_k_with_largest_v(dct):
 def get_k_with_smallest_v(dct):
     return min(dct.iteritems(), key=operator.itemgetter(1))[0]
 
+def squares(n):
+    return [x*x for x in xrange(1,n+1)]
+
 def triangles(n):
     return [(x*(x+1))/2 for x in xrange(1,n+1)]
 
-def squares(n):
-    return [x*x for x in xrange(1,n+1)]
+def pentagons(n):
+    return [(x*(3*x-1))/2 for x in xrange(1,n+1)]
+
+def hexagons(n):
+    return [(x*(2*x-1)) for x in xrange(1,n+1)]
 
 def get_digits(n):
     return [i for i in str(n)]
@@ -155,6 +161,37 @@ def check_perm_n(a,b):
             return False
     return True
 
+
+def digits2int(ds):
+    """Converts a list or tuple of ints into an integer."""
+    n = 0
+    k = 1
+    i = len(ds) - 1 # Allows it to work for tuples too, whereas 
+    while i >= 0:   # original approach with pop() only worked with lists.
+        n += k*ds[i]
+        k *= 10
+        i -= 1
+    return n
+
+def int2digits(x):
+    """Converts an int to a list of digits."""
+    if x == 0:
+        return [0]
+    digits = list()
+    while x > 0:
+        digits = [x % 10] + digits
+        x /= 10
+    return digits
+
+def power(n, x):
+    if x > 0 and x % 2 == 0:
+        return power(n, x/2) * power(n, x/2)
+    elif x % 2 == 1 and x > 2:
+        return power(n, x/2) * power(n, x/2) * n
+    elif x == 1:
+        return n
+    elif x == 0:
+        return 1
 
 
 
