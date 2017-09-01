@@ -38,3 +38,5 @@ def largest_prod(nums, n):
 	return max([product(nums[i:i+n]) for i in xrange(len(nums)+1-n)])
 
 ans = largest_prod(digits, 13)
+
+print ans

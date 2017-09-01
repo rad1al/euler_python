@@ -13,5 +13,3 @@ s = sum(nums)
 ans = str(s)[:10]
 
 print ans
-
-#> 5537376230

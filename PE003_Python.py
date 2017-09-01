@@ -11,5 +11,3 @@ factors = prime_factorize(600851475143)
 ans = max(factors)
 
 print ans
-
-#> 6857

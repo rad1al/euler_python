@@ -16,5 +16,3 @@ square_of_sum = (sum([x for x in range(1,101)]))**2
 ans = square_of_sum - sum_of_squares_of_n
 
 print ans
-
-#> 25164150

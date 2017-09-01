@@ -1,3 +1,5 @@
+# Note to self: write better solution with recurrence/pentagonal method later.
+
 """
 Slow method:
 
@@ -14,9 +16,9 @@ putting the remaining in i or fewer piles.
 # import numpy as np
 
 # c = np.zeros(100000)
+
 c = [0]*100000
 c[0] = 1
-
 
 
 for i in xrange(1,100000):
