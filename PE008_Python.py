@@ -1,3 +1,4 @@
+# coding: utf8
 """
 The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
 
@@ -29,7 +30,7 @@ from io_tools import read_data
 
 data = read_data("data/PE8_data.txt")
 num_str = reduce(lambda a,b : a+b, data)
-digits = map(ints, num_str)
+digits = map(int, num_str)
 
 def product(lst):
 	return reduce(lambda a,b: a*b, lst)
